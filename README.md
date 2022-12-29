@@ -9,10 +9,10 @@ A list of [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/) bindi
 
 ```js
 # using npm
-npm install rescript-jest-dom
+npm install @endosama/rescript-jest-dom
 
 # using yarn
-yarn add rescript-jest-dom
+yarn add @endosama/rescript-jest-dom
 ```
 
 ## Usage
