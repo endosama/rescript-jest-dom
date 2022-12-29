@@ -1,6 +1,6 @@
 {
   "name": "@endosama/rescript-jest-dom",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "jest-dom bindings for Rescript",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "jest"
   ],
   "author": "Andrea Piras",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/endosama/rescript-jestdom/issues"
   },
