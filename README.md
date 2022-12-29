@@ -25,22 +25,40 @@ open JestDom
 element->expect->toHaveTextContent(#Str("Hello there!")) // pass
 ```
 
-# Functions
+# Documentation
 
-This list contains the currently supported jest-dom assertions:
 
-  - toHaveTextContent
-  - toContainElement
-  - toHaveClassWithOptions
-  - toHaveClass
-  - toBeDisabled
-  - toBeEnabled
-  - toBeEmptyDOMElement
-  - toBeInTheDocument
-  - toBeValid
-  - toBeInvalid
-  - toBeRequired
-  - toBeVisible
-  - toHaveAttribute
-  - toHaveFocus
-  - toHaveStyle
+## toBeInTheDocument
+Asserts that the specified element is in the document.
+
+```expect(dom)->ExpectDom.toBeInTheDocument()```
+
+## toHaveClass()
+Asserts that the specified element has the given class.
+
+```expect(dom)->ExpectDom.toHaveClass(className)```
+### Parameters
+- `className`: The class to check for.
+
+## toHaveAttribute()
+Asserts that the specified element has the given attribute.
+```expect(dom)->ExpectDom.toHaveAttribute(attributeName, attributeValue?)```
+
+### Parameters
+- `attributeName`: The attribute to check for.
+- `attributeValue` (optional): The expected value of the attribute. If not provided, only the presence of the attribute is checked.
+
+
+## toHaveTextContent()
+Asserts that the specified element has the given text content.
+```expect(dom)->ExpectDom.toHaveTextContent(text)```
+
+### Parameters
+- `text`: The text content to check for.
+
+## toHaveValue()
+Asserts that the specified element has the given value.
+```expect(dom)->ExpectDom.toHaveValue(value)```
+
+### Parameters
+- `value`: The value to check for.
