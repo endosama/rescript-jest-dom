@@ -45,5 +45,8 @@
     "jest": "^27.3.1",
     "rescript": "^9.1.4",
     "rescript-webapi": "0.6.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
