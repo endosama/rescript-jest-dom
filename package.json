@@ -12,7 +12,7 @@
     "open-coverage": "open -a 'Google Chrome' ./coverage/index.html",
     "watch:rescript": "rescript build -with-deps -w",
     "watch:jest": "jest --coverage --watchAll",
-    "publish": "npm publish --access public"
+    "npm-publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
