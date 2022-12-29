@@ -1,0 +1,19 @@
+{
+  "name": "@endosama/rescript-jest-dom",
+  "namespace": "JestDom",
+  "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
+  "bs-dependencies": ["rescript-webapi", "@glennsl/rescript-jest"],
+  "suffix": ".bs.js",
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "sources": [
+    {
+      "dir": "src"
+    }
+  ],
+  "warnings": {
+    "number": "-44"
+  }
+}

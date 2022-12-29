@@ -1,0 +1,52 @@
+{
+  "name": "@endosama/rescript-jest-dom",
+  "version": "0.1.13",
+  "description": "jest-dom bindings for Rescript",
+  "main": "index.js",
+  "scripts": {
+    "build": "rescript build -with-deps",
+    "clean": "rescript clean",
+    "start": "rescript build -w",
+    "test": "npm run build && jest",
+    "test-ci": "npm run build && jest --coverage --coverageDirectory='coverage'", 
+    "open-coverage": "open -a 'Google Chrome' ./coverage/index.html",
+    "watch:rescript": "rescript build -with-deps -w",
+    "watch:jest": "jest --coverage --watchAll",
+    "publish": "npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endosama/rescript-jestdom.git"
+  },
+  "keywords": [
+    "rescript",
+    "jest-dom",
+    "jest"
+  ],
+  "author": "Andrea Piras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/endosama/rescript-jestdom/issues"
+  },
+  "homepage": "https://github.com/endosama/rescript-jestdom#readme",
+  "files": [
+    "src/",
+    "bsconfig.json"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@glennsl/rescript-jest": "^0.9.2",
+    "babel-jest": "^27.3.1"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "bs-jest-dom": "^4.1.1",
+    "jest": "^27.3.1",
+    "rescript": "^9.1.4",
+    "rescript-webapi": "0.6.1"
+  },
+  "publishConfig": {
+    "@endosama:registry": "https://npm.pkg.github.com"
+  }
+}
