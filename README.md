@@ -2,7 +2,7 @@
 
 # rescript-jest-dom
 
-A list of JestDom bindings for Rescript
+A list of [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/) bindings for Rescript
 
 
 ## Installation
@@ -26,22 +26,23 @@ element->expect->toHaveTextContent(#Str("Hello there!")) // pass
 ```
 
 # Documentation
-
+Automatically generated using [chat-gpt](https://openai.com/blog/chatgpt/). If anything is missing check the [jest-dom Documentation](https://github.com/testing-library/jest-dom#custom-matchers)
 
 ## toBeInTheDocument
 Asserts that the specified element is in the document.
 
 ```expect(dom)->ExpectDom.toBeInTheDocument()```
 
-## toHaveClass()
+## toHaveClass
 Asserts that the specified element has the given class.
 
 ```expect(dom)->ExpectDom.toHaveClass(className)```
 ### Parameters
 - `className`: The class to check for.
 
-## toHaveAttribute()
+## toHaveAttribute
 Asserts that the specified element has the given attribute.
+
 ```expect(dom)->ExpectDom.toHaveAttribute(attributeName, attributeValue?)```
 
 ### Parameters
@@ -49,15 +50,17 @@ Asserts that the specified element has the given attribute.
 - `attributeValue` (optional): The expected value of the attribute. If not provided, only the presence of the attribute is checked.
 
 
-## toHaveTextContent()
+## toHaveTextContent
 Asserts that the specified element has the given text content.
+
 ```expect(dom)->ExpectDom.toHaveTextContent(text)```
 
 ### Parameters
 - `text`: The text content to check for.
 
-## toHaveValue()
+## toHaveValue
 Asserts that the specified element has the given value.
+
 ```expect(dom)->ExpectDom.toHaveValue(value)```
 
 ### Parameters
