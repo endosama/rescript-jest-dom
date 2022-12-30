@@ -15,6 +15,13 @@ npm install @endosama/rescript-jest-dom
 yarn add @endosama/rescript-jest-dom
 ```
 
+and then add the package as a dependency in your `bsconfig.json` file:
+```js
+"bs-dependencies": [
+  ...,
+  "@endosama/rescript-jest-dom"
+]
+```
 ## Usage
 
 ```js
