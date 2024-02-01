@@ -45,6 +45,10 @@ let toHaveClass: (
   [< partial<Dom.element>],
   string
 ) => Jest.assertion
+let toHaveValue: (
+  [< partial<Dom.element>],
+  string
+) => Jest.assertion
 
 let toBeDisabled: [< partial<Dom.element>] => Jest.assertion
 let toBeChecked: [< partial<Dom.element>] => Jest.assertion

@@ -17,6 +17,7 @@ type rec assertion =
   | ToHaveTextContentRegExp(modifier<(Dom.element, Js.Re.t, Options.TextContent.options)>): assertion
   | ToContainElement(modifier<(Dom.element, 'a)>): assertion
   | ToHaveClass(modifier<(Dom.element, 'b, Options.HaveClass.options)>): assertion
+  | ToBeChecked(modifier<(Dom.element)>): assertion
   | ToBeDisabled(modifier<Dom.element>): assertion
   | ToBeEnabled(modifier<Dom.element>): assertion
   | ToBeEmptyDOMElement(modifier<Dom.element>): assertion
@@ -29,7 +30,7 @@ type rec assertion =
   | ToHaveFocus(modifier<Dom.element>): assertion
   | ToHaveStyleString(modifier<(Dom.element, string)>): assertion
   | ToHaveStyleObject(modifier<(Dom.element, {..})>): assertion
-  | ToBeChecked(modifier<(Dom.element)>): assertion
+  | ToHaveValue(modifier<(Dom.element, string)>): assertion
 
 
 module Internal = {
@@ -46,6 +47,8 @@ module Internal = {
     | ToHaveClass(#Just(a, b, options)) => expect(a)["toHaveClass"](. b, options)
     | ToHaveClass(#Not(a, b, options)) => expect(a)["not"]["toHaveClass"](. b, options)
     | ToBeDisabled(#Just(a)) => expect(a)["toBeDisabled"]()
+    | ToBeChecked(#Just(a)) => expect(a)["toBeChecked"]()
+    | ToBeChecked(#Not(a)) => expect(a)["not"]["toBeChecked"]()
     | ToBeDisabled(#Not(a)) => expect(a)["not"]["toBeDisabled"]()
     | ToBeEnabled(#Just(a)) => expect(a)["toBeEnabled"]()
     | ToBeEnabled(#Not(a)) => expect(a)["not"]["toBeEnabled"]()
@@ -69,8 +72,8 @@ module Internal = {
     | ToHaveStyleString(#Not(a, b)) => expect(a)["not"]["toHaveStyle"](b)
     | ToHaveStyleObject(#Just(a, b)) => expect(a)["toHaveStyle"](b)
     | ToHaveStyleObject(#Not(a, b)) => expect(a)["not"]["toHaveStyle"](b)
-    | ToBeChecked(#Just(a)) => expect(a)["toBeChecked"]()
-    | ToBeChecked(#Not(a)) => expect(a)["not"]["toBeChecked"]()
+    | ToHaveValue(#Just(a, b)) => expect(a)["toHaveValue"](b)
+    | ToHaveValue(#Not(a, b)) => expect(a)["not"]["toHaveValue"](b)
     }
     switch result->Js.Nullable.toOption {
     | Some(result) => Jest.fail(result["message"])
@@ -94,6 +97,10 @@ let toHaveTextContent = (expect, content) => toHaveTextContentWithOptions(expect
 
 let toContainElement = (expect, element) => {
   ToContainElement(mapMod(a => (a, element), expect))->Internal.affirm
+}
+
+let toHaveValue = (expect, value) => {
+  ToHaveValue(mapMod(a => (a, value), expect))->Internal.affirm
 }
 
 let toHaveClassWithOptions = (expect, class, ~options) => {
