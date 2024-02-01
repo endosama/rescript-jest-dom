@@ -29,6 +29,7 @@ type rec assertion =
   | ToHaveFocus(modifier<Dom.element>): assertion
   | ToHaveStyleString(modifier<(Dom.element, string)>): assertion
   | ToHaveStyleObject(modifier<(Dom.element, {..})>): assertion
+  | ToBeChecked(modifier<(Dom.element)>): assertion
 
 
 module Internal = {
@@ -68,6 +69,8 @@ module Internal = {
     | ToHaveStyleString(#Not(a, b)) => expect(a)["not"]["toHaveStyle"](b)
     | ToHaveStyleObject(#Just(a, b)) => expect(a)["toHaveStyle"](b)
     | ToHaveStyleObject(#Not(a, b)) => expect(a)["not"]["toHaveStyle"](b)
+    | ToBeChecked(#Just(a)) => expect(a)["toBeChecked"]()
+    | ToBeChecked(#Not(a)) => expect(a)["not"]["toBeChecked"]()
     }
     switch result->Js.Nullable.toOption {
     | Some(result) => Jest.fail(result["message"])
@@ -143,5 +146,8 @@ let toHaveStyle = (expect, matchStyle) => {
     | #Str(string) => ToHaveStyleString(mapMod(a => (a, string), expect))->Internal.affirm
     | #Obj(obj) => ToHaveStyleObject(mapMod(a => (a, obj), expect))->Internal.affirm
   }
-  
+}
+
+let toBeChecked = expect => {
+  ToBeChecked(mapMod(a => a, expect))->Internal.affirm
 }

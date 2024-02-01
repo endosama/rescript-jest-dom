@@ -47,6 +47,7 @@ let toHaveClass: (
 ) => Jest.assertion
 
 let toBeDisabled: [< partial<Dom.element>] => Jest.assertion
+let toBeChecked: [< partial<Dom.element>] => Jest.assertion
 let toBeEnabled: [< partial<Dom.element>] => Jest.assertion
 let toBeEmptyDOMElement: [< partial<Dom.element>] => Jest.assertion
 let toBeInTheDocument: [< partial<Dom.element>] => Jest.assertion
