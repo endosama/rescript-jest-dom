@@ -1,6 +1,6 @@
 {
   "name": "@endosama/rescript-jest-dom",
-  "version": "0.1.18",
+  "version": "0.1.17",
   "description": "jest-dom bindings for Rescript",
   "main": "index.js",
   "scripts": {
