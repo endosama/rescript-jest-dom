@@ -232,6 +232,31 @@ describe("ExpectDom", () => {
     })
   })
 
+  describe("toBeChecked", () => {
+    test("should return true when it is checked", () => {
+      let documentElement = document->Document.documentElement
+      documentElement->Element.setInnerHTML("<input type='checkbox' id='element' style='visibility: visible' checked/>")
+      let element = getById("element")
+      expect(element)->ExpectDom.toBeChecked
+    })
+
+    test("should return false when this is not checked", () => {
+      let documentElement = document->Document.documentElement
+      documentElement->Element.setInnerHTML("<input type='checkbox' id='element' style='visibility: visible'/>")
+      let element = getById("element")
+      expect(element)->not_->ExpectDom.toBeChecked
+    })
+  })
+
+  describe("toHaveValue", () => {
+    test("should return the value of the input", () => {
+      let documentElement = document->Document.documentElement
+      documentElement->Element.setInnerHTML("<input id='element' style='visibility: visible' value='Dario' />")
+      let element = getById("element")
+      expect(element)->ExpectDom.toHaveValue("Dario")
+    })
+  })
+
   describe("toHaveFocus", () => {
     test("should return true when the element has the attribute set", () => {
       let documentElement = document->Document.documentElement

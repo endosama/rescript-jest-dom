@@ -72,3 +72,8 @@ Asserts that the specified element has the given value.
 
 ### Parameters
 - `value`: The value to check for.
+
+## toBeChcked
+Asserts that the specified input element (of type checkbox or radio) is checked or not.
+
+```expect(dom)->ExpectDom.toBeChecked```
