@@ -1,6 +1,6 @@
 {
   "name": "@endosama/rescript-jest-dom",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "jest-dom bindings for Rescript",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "clean": "rescript clean",
     "start": "rescript build -w",
     "test": "npm run build && jest",
-    "test-ci": "npm run build && jest --coverage --coverageDirectory='coverage'", 
+    "test-ci": "npm run build && jest --coverage --coverageDirectory='coverage'",
     "open-coverage": "open -a 'Google Chrome' ./coverage/index.html",
     "watch:rescript": "rescript build -with-deps -w",
     "watch:jest": "jest --coverage --watchAll",
